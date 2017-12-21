@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [接口自动化测试]">
+  <parameter name="sheetName" value="Sheet1"/>
+  <parameter name="excelPath" value="case/api-data.xls"/>
+  <listeners>
+    <listener class-name="com.sen.api.listeners.AutoTestListener"/>
+    <listener class-name="com.sen.api.listeners.RetryListener"/>
+    <listener class-name="com.sen.api.listeners.ExtentTestNGIReporterListener"/>
+  </listeners>
+  <test name="自动化测试用例(failed)">
+    <parameter name="sheetName" value="Sheet1"/>
+    <parameter name="excelPath" value="case/api-data.xls"/>
+    <classes>
+      <class name="test.com.sen.api.ApiTest">
+        <methods>
+          <include name="apiTest" invocation-numbers="0 1"/>
+          <include name="readData"/>
+          <include name="init"/>
+        </methods>
+      </class> <!-- test.com.sen.api.ApiTest -->
+    </classes>
+  </test> <!-- 自动化测试用例(failed) -->
+</suite> <!-- Failed suite [接口自动化测试] -->
