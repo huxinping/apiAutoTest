@@ -4,14 +4,18 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.dom4j.DocumentException;
 import org.testng.Assert;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPath;
 import com.continental.api.beans.BaseBean;
 import com.continental.api.utils.AssertUtil;
@@ -26,6 +30,8 @@ public class TestBase {
 	 * 公共参数数据池（全局可用）
 	 */
 	private static Map<String, String> saveDatas = new HashMap<String, String>();
+	
+	private static List<LinkedHashMap> list = new ArrayList<LinkedHashMap>();  //创建返回的列表（全局可用）
 
 	/**
 	 * 替换符，如果数据中包含“${}”则会被替换成公共参数中存储的数据
@@ -198,6 +204,16 @@ public class TestBase {
 	 *            所有将被保存的数据：xx=$.jsonpath.xx;oo=$.jsonpath.oo，将$.jsonpath.
 	 *            xx提取出来的值存放至公共池的xx中，将$.jsonpath.oo提取出来的值存放至公共池的oo中
 	 */
+	
+	/**
+	 * 提取json串中的值保存至公共池中
+	 * 
+	 * @param json
+	 *            将被提取的json串。
+	 * @param allSave
+	 *            所有将被保存的数据：xx=$.jsonpath.xx;oo=$.jsonpath.oo，将$.jsonpath.
+	 *            xx提取出来的值存放至公共池的xx中，将$.jsonpath.oo提取出来的值存放至公共池的oo中
+	 */
 	protected void saveResult(String json, String allSave) {
 		if (null == json || "".equals(json) || null == allSave
 				|| "".equals(allSave)) {
@@ -224,6 +240,8 @@ public class TestBase {
 			}
 		}
 	}
+	
+
 
 	/**
 	 * 根据配置读取测试用例

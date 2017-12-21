@@ -185,10 +185,12 @@ public class ApiTest extends TestBase {
 		}
 		// 输出返回数据log
 		ReportUtil.log("resp:" + responseData);
+		
 		// 验证预期信息
 		verifyResult(responseData, apiDataBean.getVerify(),
 				apiDataBean.isContains());
-
+        // 对responseData转为map
+		
 		// 对返回结果进行提取保存。
 		saveResult(responseData, apiDataBean.getSave());
 	}

@@ -12,7 +12,7 @@ public class ApiDataBean extends BaseBean {
 	private String save;
 	private String preParam;
 	private int sleep;
-
+	
 	public boolean isRun() {
 		return run;
 	}

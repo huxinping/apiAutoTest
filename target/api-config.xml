@@ -3,7 +3,8 @@
     <rootUrl>http://ec2-54-223-127-182.cn-north-1.compute.amazonaws.com.cn:8082</rootUrl>
     <headers>
         <!-- 配置为自己的参数 -->
-        <header name="apikey" value="123456"></header>
+        <header name="Content-Type" value="application/json"></header>
+        <header name="Authorization" value="${value}"></header>
     </headers>
     <params>
     	<param name="test" value="value"></param>

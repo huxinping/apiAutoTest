@@ -14,7 +14,7 @@
     <classes>
       <class name="com.continental.test.api.ApiTest">
         <methods>
-          <include name="apiTest" invocation-numbers="0 1"/>
+          <include name="apiTest" invocation-numbers="1"/>
           <include name="readData"/>
           <include name="init"/>
         </methods>
